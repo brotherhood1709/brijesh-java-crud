@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <Id>1</Id>
+    <sname>parth</sname>
+  </Table>
+  <Table>
+    <Id>2</Id>
+    <sname>brijesh</sname>
+  </Table>
+  <Table>
+    <Id>3</Id>
+    <sname>harsh</sname>
+  </Table>
+</NewDataSet>
