@@ -1,0 +1,29 @@
+if (Session["AID"] == null)
+{
+    Session.Clear();
+    Response.Redirect("Login.aspx");
+}
+
+
+  if (text_username.Value != "" && text_pass.Value != "")
+  {
+      string str = "select * from Login where username='" + text_username.Value + "'and password='" + text_pass.Value + "'";
+      SqlDataAdapter da = new SqlDataAdapter(str, Class1.cn);
+      DataTable dt = new DataTable();
+      da.Fill(dt);
+      if (dt.Rows.Count > 0)
+      {
+          Session["aid"] = dt.Rows[0]["AID"].ToString();
+          Session["email"] = text_username.Value;
+          Session["name"] = dt.Rows[0]["Name"].ToString();
+          Response.Redirect("AddPublication.aspx");
+      }
+      else
+      {
+          ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Invalid Email Or Password');", true);
+      }
+  }
+  else
+  {
+      ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Please Enter Email And Password'');", true);
+  }
